@@ -11,9 +11,9 @@ async function fetchAllCountries() {
   try {// Se hace una petición a la API de países
     const res = await fetch('https://restcountries.com/v3.1/all');
     if (!res.ok) throw new Error('Error al cargar los países');
-    const data = await res.json();
-    allCountries = data;
-    renderCountries(data);
+    const datosApi = await res.json();
+    allCountries = datosApi;
+    renderCountries(datosApi);
   } catch (error) {// Si hay un error, se muestra un mensaje de error en el contenedor
     countriesContainer.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
   }
@@ -60,8 +60,8 @@ searchInput.addEventListener('input', async () => {
     // Se utiliza el método fetch para hacer una petición a la API de países con el nombre del país buscado
     const res = await fetch(`https://restcountries.com/v3.1/name/${query}`);
     if (!res.ok) throw new Error('No se encontraron países');
-    const data = await res.json();
-    renderCountries(data);
+    const datosApi = await res.json();
+    renderCountries(datosApi);
   } catch (error) {// Si hay un error, se muestra un mensaje de error en el contenedor
     // Se utiliza el método innerHTML para crear un mensaje de error en el contenedor de países
     countriesContainer.innerHTML = `<div class="alert alert-warning">${error.message}</div>`;
