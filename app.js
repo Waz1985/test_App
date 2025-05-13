@@ -13,16 +13,16 @@ async function fetchAllCountries() {
     if (!res.ok) throw new Error('Error al cargar los países');
     const datosApi = await res.json();
     allCountries = datosApi;
-    renderCountries(datosApi);
+    renderCountries(datosApi)
   } catch (error) {// Si hay un error, se muestra un mensaje de error en el contenedor
     countriesContainer.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
   }
 }
 // Función para renderizar los países en el contenedor
 // Se utiliza el método forEach para iterar sobre el array de países y crear un elemento HTML para cada uno
-function renderCountries(countries) {
+function renderCountries(allCountries) {
   countriesContainer.innerHTML = '';
-  countries.forEach(country => {
+  allCountries.forEach(country => {
     const { name, flags, region, population, cca3 } = country;
     const card = document.createElement('div');
     card.className = 'col-sm-6 col-md-4 col-lg-3';
