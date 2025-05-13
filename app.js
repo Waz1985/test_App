@@ -103,6 +103,7 @@ async function showCountryDetails(code) {
     // Se utiliza el método toLocaleString() para formatear la población con comas
     document.getElementById('countryModalBody').innerHTML = `
       <div class="text-center mb-3">
+      <!-- img-fluid es una clase de Bootstrap que hace que la imagen sea responsiva-->
         <img src="${flags.svg}" class="img-fluid" style="max-height: 150px;" alt="Bandera de ${name.common}">
       </div>
       <ul class="list-group list-group-flush">
